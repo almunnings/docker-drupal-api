@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/.composer/vendor/bin
+
+*/15 * * * * drush -r /var/www/html cron > /proc/1/fd/1 2>/proc/1/fd/2
+* * * * * drush -r /var/www/html queue-run api_parse --time-limit=55 > /proc/1/fd/1 2>/proc/1/fd/2
