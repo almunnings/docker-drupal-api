@@ -16,7 +16,7 @@ if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
 
     # Give the database some time to start up.
     echo "Waiting for database..."
-    sleep 10
+    sleep 20
 
     # Install Drupal
     drush si -y standard --db-url=mysql://root:root@mysql/drupal
