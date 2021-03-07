@@ -20,9 +20,9 @@ RUN export PATH="$HOME/.composer/vendor/bin:$PATH"
 RUN composer global require hirak/prestissimo
 
 # Install Drush
-RUN git clone --depth 1 --recursive --branch 8.x https://github.com/drush-ops/drush.git /usr/local/src/drush
-RUN ln -s /usr/local/src/drush/drush /usr/bin/drush
-RUN composer install -d /usr/local/src/drush
+RUN curl -L https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar --output /usr/local/bin/drush
+RUN chmod +x /usr/local/bin/drush
+RUN drush init -y
 
 # Prep settings
 RUN mkdir -p $REPO_DIR
