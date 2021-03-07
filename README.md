@@ -24,7 +24,7 @@ Startup can take about 5 minutes.
 
 ## Adding more versions
 
-Add the repo to the `.docker/web.entrypoint.sh`, git, composer and drush commands. Nuke and repeat.
+Add the repo to the `.docker/web.entrypoint.sh`, BRANCHES array. Nuke and repeat.
 
 ## Admin login
 

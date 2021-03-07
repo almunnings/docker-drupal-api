@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 cd $APACHE_DOCUMENT_ROOT
+
+# Enable APIs. First one becomes preferred.
+BRANCHES=(9.1.x 8.9.x 9.0.x 9.2.x)
 
 # Check if already installed.
 if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
@@ -42,39 +45,40 @@ if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
     drush vset cron_safe_threshold 0
     drush cc all
 
-    # Drupal APIs
-    git clone --recursive --depth 1 --branch 8.9.x https://git.drupalcode.org/project/drupal.git $REPO_DIR/drupal-8.9.x
-    git clone --recursive --depth 1 --branch 9.0.x https://git.drupalcode.org/project/drupal.git $REPO_DIR/drupal-9.0.x
-    git clone --recursive --depth 1 --branch 9.1.x https://git.drupalcode.org/project/drupal.git $REPO_DIR/drupal-9.1.x
-    git clone --recursive --depth 1 --branch 9.2.x https://git.drupalcode.org/project/drupal.git $REPO_DIR/drupal-9.2.x
-
-    # Install deps for each API
-    composer install -d $REPO_DIR/drupal-8.9.x
-    composer install -d $REPO_DIR/drupal-9.0.x
-    composer install -d $REPO_DIR/drupal-9.1.x
-    composer install -d $REPO_DIR/drupal-9.2.x
-
     # Disable fallback branching
     sed -i 's/return $fallback_branch;/#return $fallback_branch;/g' $APACHE_DOCUMENT_ROOT/sites/all/modules/api/api.module
 
-    # Enable APIs. First one becomes preferred.
-    drush api-ensure-branch "drupal" "Drupal Core" "core" "9.1.x" "Drupal 9.1.x" "$REPO_DIR/drupal-9.1.x" "9.1.x" 1
+    for BRANCH in ${BRANCHES[@]}; do
+        # Download a copy of the codebase
+        git clone --recursive --depth 1 --branch $BRANCH https://git.drupalcode.org/project/drupal.git $REPO_DIR/drupal-$BRANCH
+        
+        # Install Drupal composer deps
+        composer install -d $REPO_DIR/drupal-$BRANCH
+        
+        # Enable branch in API module
+        drush api-ensure-branch "drupal" "Drupal Core" "core" "$BRANCH" "Drupal $BRANCH" "$REPO_DIR/drupal-$BRANCH" "$BRANCH" 300
+        
+        # Exclude vendor unit tests and drupalisms on vendors.
+        drush php-eval "
+            module_load_include('inc', 'api', 'api.db'); 
+            \$b = api_branch_load('$BRANCH');
+            \$b->data = unserialize(\$b->data);
+            \$b->data['exclude_files_regexp'] = '/\\/vendor\\/.+[tT]est/';
+            \$b->data['exclude_drupalism_regexp'] = '/\\/vendor\\//';
+            api_save_branch(\$b);
+        "
+    done
 
-    # Other APIs.
-    drush api-ensure-branch "drupal" "Drupal Core" "core" "8.9.x" "Drupal 8.9.x" "$REPO_DIR/drupal-8.9.x" "8.9.x" 1
-    drush api-ensure-branch "drupal" "Drupal Core" "core" "9.0.x" "Drupal 9.0.x" "$REPO_DIR/drupal-9.0.x" "9.0.x" 1
-    drush api-ensure-branch "drupal" "Drupal Core" "core" "9.2.x" "Drupal 9.2.x" "$REPO_DIR/drupal-9.2.x" "9.2.x" 1
-
-    # Restore change
+    # Restore fallback branching
     sed -i 's/#return $fallback_branch;/return $fallback_branch;/g' $APACHE_DOCUMENT_ROOT/sites/all/modules/api/api.module
+
+    # Always trigger a cron on start
+    echo "Running cron, this make take a while... Website will not be accessible until this finishes."
+    drush cron
 fi
 
 # Cleanup permissions
 chown -R www-data:www-data $APACHE_DOCUMENT_ROOT/sites
-
-# Always trigger a cron on start
-echo "Running cron, this make take a while... Website will not be accessible until this finishes."
-drush cron
 
 # Serve website
 echo "API site setup complete. Cron container will continue to process in background."
