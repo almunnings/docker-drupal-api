@@ -63,8 +63,8 @@ if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
             module_load_include('inc', 'api', 'api.db'); 
             \$b = api_branch_load('$BRANCH');
             \$b->data = unserialize(\$b->data);
-            \$b->data['exclude_files_regexp'] = '/\\/vendor\\/.+[tT]est/';
-            \$b->data['exclude_drupalism_regexp'] = '/\\/vendor\\//';
+            \$b->data['exclude_files_regexp'] = '|/vendor/.+[tT]est|';
+            \$b->data['exclude_drupalism_regexp'] = '|/vendor/|';
             api_save_branch(\$b);
         "
     done
