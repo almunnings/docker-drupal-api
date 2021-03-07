@@ -2,9 +2,6 @@
 
 cd $APACHE_DOCUMENT_ROOT
 
-echo "Downloading repos..."
-
-
 # Check if already installed.
 if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
 
