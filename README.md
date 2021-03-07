@@ -6,15 +6,14 @@ http://localhost/api/drupal
 
 - Every minute a cronjob processes tasks out of a queue.
 - Every 15 mins the cron task runs and pumps more shit into that queue.
-- After a few hours its built.
+- After a few hours its built. 
+- Once built, should see "Processed 0 items from the api_parse queue in 0 sec." in cron log.
 
 ## Build
 
 `docker-compose up --build`
 
-Startup can take about 5 minutes. First cron task take a while to queue everything up.
-
-Takes about an hour to process all the APIs via the CRON tasks.
+Startup can take about 5 minutes.
 
 ## Nuke
 
@@ -22,7 +21,7 @@ Takes about an hour to process all the APIs via the CRON tasks.
 
 ## Adding more versions
 
-Add the repo to the `web.entrypoing.sh`, git and drush command. Nuke and repeat.
+Add the repo to the `.docker/web.entrypoint.sh`, git, composer and drush commands. Nuke and repeat.
 
 ## Admin login
 
