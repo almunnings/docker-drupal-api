@@ -34,8 +34,12 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: drupal
     command:
-      - "--max_allowed_packet=64M"
-      - "--innodb-buffer-pool-size=2G"
+      - "--max-allowed-packet=64M"
+      - "--innodb-buffer-pool-size=2750M"
+      - "--innodb-buffer-pool-instances=2"
+      - "--innodb-log-file-size=256M"
+      - "--tmp-table-size=32M"
+      - "--join-buffer-size=1M"
     volumes:
       - "mysql:/var/lib/mysql:delegated"
 
