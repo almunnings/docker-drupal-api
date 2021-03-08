@@ -39,8 +39,8 @@ if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
     drush vset --exact cache 1
     drush vset preprocess_css 1
     drush vset preprocess_js 1
-    drush vset cache_lifetime 900
-    drush vset page_cache_maximum_age 900
+    drush vset cache_lifetime 31536000
+    drush vset page_cache_maximum_age 31536000
     drush vset error_level 0
     drush vset cron_safe_threshold 0
     drush cc all
