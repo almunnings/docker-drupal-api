@@ -35,6 +35,7 @@ services:
       MYSQL_DATABASE: drupal
     command:
       - "--max_allowed_packet=64M"
+      - "--innodb-buffer-pool-size=1G"
     volumes:
       - "mysql:/var/lib/mysql:delegated"
 
