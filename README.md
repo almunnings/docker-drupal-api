@@ -27,7 +27,7 @@ Clear the drupal cache and stop the cron runner.
 
 ## Deploying on linode
 
-- Ubuntu 20.20 or whatever flavour you're good with.
+- Ubuntu 20 or whatever flavour you're good with.
 - 2cpu 4gb ram minimum. More CPU better.
 - https://www.linode.com/docs/guides/how-to-use-docker-compose/
 
