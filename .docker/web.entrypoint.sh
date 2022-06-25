@@ -2,8 +2,8 @@
 
 cd $APACHE_DOCUMENT_ROOT
 
-# Enable APIs. First one becomes preferred.
-BRANCHES=(9.1.x 8.9.x 9.0.x 9.2.x)
+# Enable APIs. First one becomes preferred. Seperate multiple with space.
+BRANCHES=(9.4.x)
 
 # Check if already installed.
 if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
@@ -27,6 +27,7 @@ if [ ! -f "$APACHE_DOCUMENT_ROOT/sites/default/settings.php" ]; then
     # Install contrib nodules.
     drush dl -y composer_manager
     drush en -y composer_manager
+    drush cc all
     drush dl -y ctools views api features strongarm features_extra
     drush en -y api features strongarm fe_block api_settings
     drush dis -y comment dblog update shortcut
