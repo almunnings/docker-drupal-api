@@ -35,6 +35,7 @@ chown -R www-data:www-data /opt/drupal/web/sites/default/files
 # Run cron once.
 echo "Running initial cron, this might take a minute..."
 drush cron || true
+drush cr || true
 
 # Serve website
 echo "API site setup complete. Cron container will continue to process in background."
