@@ -1,0 +1,16 @@
+uuid: 1ecbefe1-caf6-422b-a2c4-fa75adafc5ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - api
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access API reference'

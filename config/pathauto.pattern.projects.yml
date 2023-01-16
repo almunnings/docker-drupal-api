@@ -1,0 +1,14 @@
+uuid: 0282a3af-c9be-4c9f-a19f-cd899700a95a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _4KqOiwibBBEiNGgJxDlejGIdLOrDnjBqE9oJ-feyMc
+id: projects
+label: Projects
+type: 'canonical_entities:project'
+pattern: 'api/[project:slug]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -12,8 +12,10 @@ services:
     depends_on:
       - mysql
     volumes:
-      - code:/var/www/html/code:delegated
-      - sites:/var/www/html/sites:delegated
+      - code:/opt/drupal/code:delegated
+      - files:/opt/drupal/web/sites/default/files:delegated
+      - ./config/:/opt/drupal/config:delegated
+      - ./settings.php:/opt/drupal/web/sites/default/settings.php:ro
 
   cron:
     build:
@@ -25,14 +27,17 @@ services:
       - mysql
       - web
     volumes:
-      - code:/var/www/html/code:ro
-      - sites:/var/www/html/sites:ro
+      - code:/opt/drupal/code:delegated
+      - files:/opt/drupal/web/sites/default/files:delegated
+      - ./settings.php:/opt/drupal/web/sites/default/settings.php:ro
 
   mysql:
     image: mariadb:10.5
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: drupal
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     command:
       - "--max-allowed-packet=64M"
       - "--innodb-buffer-pool-size=2750M"
@@ -46,5 +51,5 @@ services:
 
 volumes:
   mysql: null
+  files: null
   code: null
-  sites: null

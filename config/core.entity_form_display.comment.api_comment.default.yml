@@ -1,0 +1,38 @@
+uuid: 7c91287c-3c43-4e73-9ab1-8b8a9f648459
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.api_comment
+    - field.field.comment.api_comment.field_api_comment_body
+  module:
+    - text
+_core:
+  default_config_hash: cV-qtpnQsUM1esKxfmWumuE38IgAUP95bi-avstSSyM
+id: comment.api_comment.default
+targetEntityType: comment
+bundle: api_comment
+mode: default
+content:
+  author:
+    weight: -2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_api_comment_body:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  subject:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

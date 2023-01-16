@@ -1,0 +1,14 @@
+uuid: 85007b27-bf1c-4cac-b1ba-f9056fc23d03
+langcode: en
+status: true
+dependencies:
+  module:
+    - api_search_core
+_core:
+  default_config_hash: KIDvvIOckzsDThUWADDNCehWRIhqmiM90ddeHbjBhCY
+id: docblock_search
+label: DocBlocks
+path: api
+weight: 0
+plugin: docblock_search
+configuration: {  }
