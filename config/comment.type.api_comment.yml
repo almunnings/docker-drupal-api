@@ -1,0 +1,10 @@
+uuid: f3de62f4-7f7e-4456-a215-c81d98d2149f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: G0hSRneoFh0fu7cClqelu4cKkyMtEuD97SEbuGuMJ1k
+id: api_comment
+label: 'API pages comments'
+target_entity_type_id: docblock
+description: 'Allows commenting on documentation pages'

@@ -6,23 +6,23 @@ http://localhost/api/drupal
 
 - Every minute a cronjob processes tasks out of a queue.
 - Every 15 mins the cron task runs and pumps more shit into that queue.
-- After a few hours its built. 
+- After a few hours its built.
 
 ## 1. Build
 
 `docker-compose up --build -d`
 
-Startup can take about 5 minutes.
+Startup can take up to 5 minutes depending on server size.
 
 ## 2. Check build status
 
-`docker-compose exec web drush api-count-queues`
+`docker-compose exec web drush api:count-queues`
 
 ## 3. After build
 
 Clear the drupal cache and stop the cron runner.
 
-- `docker-compose exec web drush cc all`
+- `docker-compose exec web drush cr`
 - `docker-compose stop cron`
 
 ## Deploying on linode
@@ -41,9 +41,9 @@ Otherwise it wont start.
 
 `docker-compose down -v`
 
-## Adding more versions
+## Changing the API version
 
-Add the repo to the `.docker/web.entrypoint.sh`, BRANCHES array. Nuke and repeat.
+Change the `BRANCH` variable in `.docker/web.entrypoint.sh`. Nuke docker and repeat.
 
 ## Admin login
 

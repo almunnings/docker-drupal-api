@@ -1,0 +1,37 @@
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
+module:
+  api: 0
+  api_search_core: 0
+  block: 0
+  breakpoint: 0
+  comment: 0
+  datetime: 0
+  datetime_range: 0
+  dblog: 0
+  dynamic_page_cache: 0
+  field: 0
+  file: 0
+  filter: 0
+  image: 0
+  link: 0
+  mysql: 0
+  node: 0
+  options: 0
+  page_cache: 0
+  path: 0
+  path_alias: 0
+  search: 0
+  system: 0
+  telephone: 0
+  text: 0
+  token: 0
+  toolbar: 0
+  user: 0
+  pathauto: 1
+  views: 10
+  minimal: 1000
+theme:
+  claro: 0
+  olivero: 0
+profile: minimal
