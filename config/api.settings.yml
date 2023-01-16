@@ -1,7 +1,7 @@
 breaks_where: '/ :: \'
-breaks_tag: "<wbr />"
+breaks_tag: '<wbr />'
 branches_per_cron: 5
 remove_orphan_files: 0
-opensearch_name: "Drupal API"
-opensearch_description: "Drupal API documentation"
+opensearch_name: 'Drupal API'
+opensearch_description: 'Drupal API documentation'
 git_base_path: /opt/drupal/code

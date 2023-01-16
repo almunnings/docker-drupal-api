@@ -1,0 +1,27 @@
+uuid: 7a2d8811-d1c2-4919-8149-8666b4831371
+langcode: en
+status: true
+dependencies:
+  module:
+    - api
+  theme:
+    - olivero
+id: apinavigationblock
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: api_navigation_block
+settings:
+  id: api_navigation_block
+  label: 'API Navigation Block'
+  label_display: visible
+  provider: api
+  navigation_block_display:
+    branch: branch
+    listing: listing
+    item: item
+    references: references
+    search: search
+    special: special
+visibility: {  }
