@@ -38,6 +38,9 @@ Important: Clear the Drupal cache and stop the cron runner.
 
 - Ubuntu 20 or whatever flavour you're good with.
 - 2cpu 4gb ram minimum. More CPU better.
+- Install docker: https://www.linode.com/docs/guides/installing-and-using-docker-on-ubuntu-and-debian/
+
+Install docker compose:
 
 ```bash
 sudo curl -L https://github.com/docker/compose/releases/download/1.28.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
