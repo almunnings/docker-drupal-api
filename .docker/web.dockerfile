@@ -12,9 +12,10 @@ COPY .docker/web.entrypoint.sh /entrypoint.sh
 # All run actions in one layer.
 RUN apt update && apt install -y -qq bash git curl wget tar zip unzip gzip mariadb-client && \
   rm -r /var/lib/apt/lists/* && \
-  echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini && \
+  echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini && \
   echo 'error_reporting = E_ALL & ~E_DEPRECATED' >> /usr/local/etc/php/conf.d/docker-php-errors.ini && \
-  yes | composer require drush/drush drupal/api --no-interaction --prefer-dist && \
+  yes | composer require drush/drush --no-interaction --prefer-dist && \
+  yes | composer require 'drupal/api:2.x-dev@dev' --no-interaction --prefer-dist  && \
   yes | composer install && \
   ln -s /opt/drupal/vendor/bin/drush /usr/local/bin/drush && \
   mkdir -p $REPO_DIR && \

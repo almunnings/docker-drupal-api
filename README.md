@@ -1,12 +1,14 @@
 # Drupal APIs
 
-http://localhost/api/drupal
+A local version of the Drupal API for consumption by scraping tools.
+
+> Check out https://kapeli.com/dash and https://zealdocs.org/
 
 ## How it builds
 
-- Every minute a cronjob processes tasks out of a queue.
-- Every 15 mins the cron task runs and pumps more shit into that queue.
-- After a few hours its built.
+- Boot: Run cron job and queue up API processing.
+- Every minute a cronjob processes about 500 tasks out of a queue.
+- After initial processing it builds class relations.
 
 ## 1. Build
 
@@ -18,9 +20,11 @@ Startup can take up to 5 minutes depending on server size.
 
 `docker-compose exec web drush api:count-queues`
 
+If there is only 1 task remainnig, it's going to be the class relations task. **You need to wait.**
+
 ## 3. After build
 
-Clear the drupal cache and stop the cron runner.
+Important: Clear the Drupal cache and stop the cron runner.
 
 - `docker-compose exec web drush cr`
 - `docker-compose stop cron`
