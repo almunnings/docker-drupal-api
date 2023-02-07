@@ -10,6 +10,8 @@ A local version of the Drupal API for consumption by scraping tools.
 - Every minute a cronjob processes about 500 tasks out of a queue.
 - After initial processing it builds class relations.
 
+---
+
 ## 1. Build
 
 `docker-compose up --build -d`
@@ -28,18 +30,22 @@ Important: Clear the Drupal cache and stop the cron runner.
 
 - `docker-compose exec web drush cr`
 - `docker-compose stop cron`
+- http://localhost/api/drupal
+
+---
 
 ## Deploying on linode
 
 - Ubuntu 20 or whatever flavour you're good with.
 - 2cpu 4gb ram minimum. More CPU better.
-- https://www.linode.com/docs/guides/how-to-use-docker-compose/
 
-Once you get to the step for 'Install Docker Compose' make sure you use the at least version `1.28.5`. The command would be.
+```bash
+sudo curl -L https://github.com/docker/compose/releases/download/1.28.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+```
 
-    sudo curl -L https://github.com/docker/compose/releases/download/1.28.5/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-
-Otherwise it wont start.
+```bash
+sudo chmod +x /usr/local/bin/docker-compose
+```
 
 ## Nuke
 
