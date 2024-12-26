@@ -2,7 +2,7 @@
 
 $databases = [];
 
-$settings['hash_salt'] = 'fNzcUmlVB_ROHo0n48ylfPZENJkEsgK_Cp9rt0FHq8Eay9NLDl9s8UfzrJ0Hu5buE2Y9kxXv9g';
+$settings['hash_salt'] = 'foobar';
 
 $settings['update_free_access'] = false;
 
@@ -11,6 +11,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 $settings['file_scan_ignore_directories'] = [
   'node_modules',
   'bower_components',
+];
+
+$settings['trusted_host_patterns'] = [
+  '.+',
 ];
 
 $settings['entity_update_batch_size'] = 50;

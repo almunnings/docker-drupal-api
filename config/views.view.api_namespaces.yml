@@ -162,7 +162,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -179,6 +178,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         namespace:
           id: namespace
@@ -567,7 +567,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -584,6 +583,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
         namespace:
           id: namespace
           table: api_branch_docblock
@@ -604,7 +604,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -625,6 +624,7 @@ display:
           path_case: none
           transform_dash: false
           break_phrase: false
+          default_argument_skip_url: false
       filters:
         object_type:
           id: object_type

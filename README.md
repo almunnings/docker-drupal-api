@@ -52,7 +52,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ## Nuke
 
-`docker-compose down -v`
+`docker-compose down --rmi all -v --remove-orphans`
 
 ## Changing the API version
 

@@ -355,7 +355,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -376,6 +375,7 @@ display:
           path_case: none
           transform_dash: false
           break_phrase: false
+          default_argument_skip_url: false
         branch:
           id: branch
           table: api_branch_docblock
@@ -396,7 +396,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -413,6 +412,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters: {  }
       style:
         type: table
@@ -1176,7 +1176,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -1193,6 +1192,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         class:
           id: class
@@ -2098,7 +2098,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -2115,6 +2114,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         deprecated:
           id: deprecated
@@ -2656,7 +2656,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -2673,6 +2672,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         object_name_1:
           id: object_name_1
@@ -3416,7 +3416,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -3433,6 +3432,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         object_name:
           id: object_name
@@ -3784,7 +3784,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -3801,6 +3800,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         class:
           id: class
@@ -4218,7 +4218,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -4239,6 +4238,7 @@ display:
           path_case: none
           transform_dash: false
           break_phrase: false
+          default_argument_skip_url: false
         object_type:
           id: object_type
           table: api_branch_docblock
@@ -4259,7 +4259,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -4280,6 +4279,7 @@ display:
           path_case: none
           transform_dash: false
           break_phrase: false
+          default_argument_skip_url: false
         branch:
           id: branch
           table: api_branch_docblock
@@ -4300,7 +4300,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -4317,6 +4316,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         class:
           id: class
@@ -5229,7 +5229,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -5246,6 +5245,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          default_argument_skip_url: false
       filters:
         object_name:
           id: object_name
